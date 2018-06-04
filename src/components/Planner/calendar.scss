@@ -1,0 +1,451 @@
+@import '../../components/Common/_themes';
+@import '../../components/Common/_fonts';
+
+#incident-timeline {
+    width: 100%;    
+    display: flex;
+    flex-direction: column; 
+}
+
+#timeline-holder {
+    position: relative;
+    display: flex;
+    @include themify($themes) {
+        border-top: 1px solid themed('timelineBorder');
+    }
+    min-height: 0;
+    height: 100%;
+}
+
+#timeline-datepicker {
+    flex: 0 0 470px;
+    padding-top: 15px;
+    @include themify($themes) {
+        border-left: 1px solid themed('datepickerBorder');
+        background-color: themed('datepickerBackground');
+    }
+
+    .react-datepicker {
+        background: none;
+        border: 0 none;
+        @include themify($themes) {
+            color: themed('datepickerForeground');
+        }
+        margin: 20px;
+        div {
+            background: none;
+            border: 0 none;
+        }
+        .react-datepicker__day-names {
+            font-family: $montserrat;
+            font-size: 12.7px;
+            font-weight: bold;
+        }
+        .react-datepicker__navigation--previous {
+            left: 20px;
+            top: 12px;
+        }
+        .react-datepicker__navigation--next {
+            right: 20px;
+            top: 12px;
+        }
+        .react-datepicker__month {
+            padding: 0;
+            margin: 0;
+        }
+        .react-datepicker__current-month {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            @include themify($themes) {
+                color: themed('datepickerHeaderColor');
+            }
+            font-family: $lato;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .react-datepicker__day-name {
+            padding: 0 0 2px;
+            width: 58px;
+            @include themify($themes) {
+                color: themed('datepickerHeaderColor');
+            }
+        }
+        .react-datepicker__day-name:after {
+            box-sizing: content-box;
+            content: '';
+            position: absolute;
+            bottom: 1px;
+            width: 100%;
+            padding: 0 1px;
+            left: -1px;
+            @include themify($themes) {
+                border-bottom: 1px solid themed('datepickerDayBorder');
+            }
+        }
+        .react-datepicker__day {
+            border-radius: 100%;
+            height: 58px;
+            width: 58px;
+            padding: 16px 0;
+            font-family: $montserrat;
+            font-size: 12.7px;
+            font-weight: bold;
+            @include themify($themes) {
+                color: themed('datepickerDayColor');
+            }
+        }
+        .react-datepicker__day--sat {
+            @include themify($themes) {
+                color: themed('datepickerSaturdayForeground');
+            }
+        }
+        .react-datepicker__day--sun {
+            @include themify($themes) {
+                color: themed('datepickerSundayForeground');
+            }
+        }
+        .react-datepicker__day--selected {
+            @include themify($themes) {
+                background: themed('datepickerSelectedDayBackground');
+                color: themed('datepickerSelectedDayForeground');
+            }
+        }
+        .react-datepicker__day--outside-month {
+            @include themify($themes) {
+                color: themed('datepickerOutsideMonthForeground');
+            }
+        }
+    }
+}
+
+#timeline-view-log {
+
+    .log-modal-info {
+        .log-modal-timestamp {
+            @include cardMetaText();
+        }
+
+        .log-modal-ip {
+            @include cardMetaText();
+        }
+
+        .log-modal-description {
+            @include paragraph();
+            @include themify($themes) {
+                color: themed('modalTextColor');
+            }
+        }
+    }
+
+    .log-modal-buttons {
+        margin-top: 35px;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+#timeline-view,
+#timeline-list,
+.timeline-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex: 1;
+    position: relative;
+    @include themify($themes) {
+        background-color: themed('timelineBackground');
+    }
+    width: 100%;
+    display: flex;
+
+    #tv-events-wrapper, .tv-events-wrapper {
+        display: flex;
+        overflow-y: auto;
+    }
+
+    #tv-events-header {
+        display: flex;
+        position: absolute;
+        width: 100%;
+    }
+
+    .tv-day-heading {
+        width: 100%;
+        display: flex;
+        @include themify($themes) {
+            border-bottom: 1px solid themed('timelineBorder');
+        }
+        .tv-day-heading-date  {
+            font-size: 20px;
+            text-align: left; 
+            padding: 5px 0px 0px 15px;
+            flex: 0 auto;
+            @include themify($themes) {
+                color: themed('timelineDateHeadingsColor');
+            }
+            svg {
+                width: 25px;
+                margin-right: 5px;
+            }
+            span {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            span.inactive {
+                color: grey;
+            }
+        }
+
+        .tv-day-event-count {
+            @include themify($themes) {
+                color: themed('timelineEventCountColor');
+            }
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 3px;
+        }
+    }
+    
+    .tv-col {
+        flex: 1;
+
+        .tv-heading-date {
+            font-size: 14px;
+            @include themify($themes) {
+                color: themed('timelineDateHeadingsColor');
+            }
+            .tv-event-count {
+                font-size: 12px;
+                @include themify($themes) {
+                    color: themed('timelineEventCountColor');
+                }
+            }
+            span {
+                display: inline-block;
+                margin-right: 5px;
+            }
+            span.inactive {
+                color: grey;
+            }
+        }
+        .tv-heading {
+            z-index: 9;
+            @include themify($themes) {
+                border-bottom: 1px solid themed('timelineBorder');
+                background-color: themed('timelineBackground');
+            }
+        }
+
+        &:last-child {
+            .tv-events {
+                border-right: 0;
+            }
+        }
+    }
+
+    .tv-time-col,
+    .tv-time-list {
+        flex: 0 0 90px;
+        text-align: center;
+    }
+
+    .tv-blank {
+        width: 90px;
+    }
+
+    .tv-time-col {
+        @include themify($themes) {
+            border-right: 1px solid themed('timelineBorder');
+        }
+        position: relative;
+    }
+
+    .tv-col:last-child {
+        border: 0;
+    }
+
+    .tv-blank,
+    .tv-heading,
+    .tv-day-heading {
+        padding: 15px 5px 0 5px;
+        text-align: center;
+        @include themify($themes) {
+            border-bottom: 1px solid themed('timelineBorder');
+        }
+    }
+
+    .tv-heading,
+    .tv-time-heading {
+        @include themify($themes) {
+            color: themed('timelineTimeHeadingsColor');
+        }
+        font-size: 12px;    
+        position: relative;
+    }
+
+    .tv-time-list {
+        .tv-time-heading {
+            position: relative;
+            padding-top: 12px;
+
+            &:nth-child(odd) {
+                @include themify($themes) {
+                    background-color: themed('timelineListRowOdd');
+                }
+            }
+            &:nth-child(even) {
+                @include themify($themes) {
+                    background-color: themed('timelineListRowEven');
+                }
+            }
+        }
+    }
+
+    .tv-heading-events {
+        margin-top: 5px;
+        @include themify($themes) {
+            color: themed('timelineHeaderForeground');
+        }
+    }
+
+    .tv-heading-icon {
+        width: 10px;
+        @include themify($themes) {
+            fill: themed('timelineHeaderIconFill');
+        }
+    }
+    .tv-list-rows {
+        position: relative;
+        .tv-list-row {
+            position: relative;
+            width: 100%;
+            display: flex; 
+            padding-top: 13px;
+
+            @include themify($themes) {
+                color: themed('timelineListRowTextColor');
+            }
+            &:nth-child(odd) {
+                @include themify($themes) {
+                    background-color: themed('timelineListRowOdd');
+                }
+            }
+            &:nth-child(even) {
+                @include themify($themes) {
+                    background-color: themed('timelineListRowEven');
+                }
+            }
+            .tv-list-col-icon {
+                position: relative;
+                width: 34px;
+                .tv-list-icon {
+                    position: relative;
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 10px;
+                    margin: 0 10px;
+                    margin-top: 2px;
+                }
+            }
+            .tv-list-col-text {
+                position: absolute;
+                width: calc(100% - 50px);
+                left: 34px;
+                .tv-list-text {
+                    position: relative;
+                    display: block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-wrap: break-word;
+                    cursor: pointer;
+                    border: 0;
+                    text-align: left;
+                    background: transparent;
+                    padding: 0;
+                    width: 100%;
+                    
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .tv-events {
+        position: relative;
+        @include themify($themes) {
+            border-right: 1px solid themed('timelineBorder');
+        }
+        .tv-event {
+            @include themify($themes) {
+                border: 1px solid themed('timelineEventBorder');
+                color: themed('timelineEventForeground');
+            }
+            box-shadow: 2px 2px 16px -4px rgba(0,0,0,0.75);
+            padding: 3px;
+            height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            border-radius: 5px;
+            position: absolute;
+            cursor: pointer;
+            width: calc(100% - 10px);
+            left: 5px;
+            display: block;
+            
+            &:focus {
+                outline: none;
+            }
+            &.tv-event-selected {
+                @include themify($themes) {
+                    border: 2px solid themed('timelineEventSelected');
+                }
+            }
+        }
+    }
+
+    .tv-event,
+        .tv-list-icon {
+            &.lighgreen {
+                @include themify($themes) {
+                    background-color: themed('timelineEventLightGreen');
+                }
+            }
+
+            &.lightblue {
+                @include themify($themes) {
+                    background-color: themed('timelineEventLightBlue');
+                }
+            }
+
+            &.aqua {
+                @include themify($themes) {
+                    background-color: themed('timelineEventAqua');
+                }
+            }
+
+            &.purple {
+                @include themify($themes) {
+                    background-color: themed('timelineEventPurple');
+                }
+            }
+
+            &.orangebrown {
+                @include themify($themes) {
+                    background-color: themed('timelineEventOrangeBrown');
+                }
+            }
+
+            &.lightgrey {
+                @include themify($themes) {
+                    background-color: themed('timelineEventLightGrey');
+                }
+            }
+        }
+
+}

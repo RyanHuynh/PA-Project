@@ -1,0 +1,31 @@
+@import './_themes';
+@import './_mixins';
+
+.filter-sort {
+  @include flexbox($dir: column, $overflow: none);
+  .filter-sort-options {
+    @include flexbox($items: center, $overflow: none);
+    .sortby {
+      margin-left: 20px;
+    }
+    .edit-filter-button {
+      margin-left: 10px;
+    }
+  }
+  
+
+  .filter-labels {
+    @include flexbox;
+    clear: both;
+    flex-wrap: wrap;
+    justify-content: start;
+
+    .ui.label {
+      @include themify($themes) {
+        color: themed('dropdownSelectedForeground');
+      }
+      margin: 0.5rem 0.5rem 0 0;
+    }
+  }
+}
+

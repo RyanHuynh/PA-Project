@@ -1,0 +1,18 @@
+@import './_fonts';
+
+.expandable-text {
+  .expandable-text-content {
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+    width: 100%;
+  }
+
+  .expand-button {
+    @include expandText();
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+

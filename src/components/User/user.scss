@@ -1,0 +1,21 @@
+@import '../Common/common';
+
+#user-avatar {
+  i {
+    pointer:cursor;
+  }
+}
+#user-setting-menu {
+  button {
+    margin-bottom: 12px;
+    font-size: 16px;
+    @include themify($themes) {
+      color: themed('menuItemDeactive');
+    }
+    &.selected, &:hover {
+      @include themify($themes) {
+        color: themed('menuItemActive');
+      }
+    }
+  }
+}

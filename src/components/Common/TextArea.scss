@@ -1,0 +1,13 @@
+@import '../../../Common/_colors';
+
+.add-note{
+    padding: 10px;
+    textarea {
+        width: 100%;
+        resize: none;
+        &.error {
+            background: #fff6f6;
+            border-color: #e0b4b4;
+        }
+    }
+}

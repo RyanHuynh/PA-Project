@@ -1,0 +1,29 @@
+#a-nav-bar {
+  @include themify($themes) {
+    background: themed('navigationBackground');
+  }
+  min-height: 40px;
+  display: flex;
+  padding: 0 10px;
+  .item {
+    padding: 0;
+    a {
+      text-align: center;
+      min-width: 100px;
+      font-size: 16px;
+      border-bottom-width: 4px;
+      border-bottom-style: solid;
+      border-bottom-color: transparent;
+      @include themify($themes) {
+        color: themed('navigationForegroundSelected');
+      }
+      padding: 12px 16px;
+      align-self: auto;
+      &.is-active {
+        @include themify($themes) {
+          border-color: themed('navigationForegroundHighlight');
+        }
+      }    
+    }
+  }  
+}

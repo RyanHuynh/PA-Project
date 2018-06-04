@@ -1,0 +1,260 @@
+$dark: (
+  // Horizontal Navigation
+  'topNavBackground': #3b3e51,
+  'navigationBackground': #3b3e51,
+  'navigationForeground': #b2b5c3,
+  'navigationForegroundDisabled': rgba(178, 181, 195, 0.5),
+  'navigationForegroundHighlight': #18b7a3,
+  'navigationForegroundSelected': #ffffff,
+
+  // Vertical Navigation
+  'sideNavigationBackground': #292c3f,
+  'sideNavigationForeground': #b2b5c3,
+  'sideNavigationForegroundHighlight':#3b3e51,
+  'sideNavigationForegroundSelected': #188080,
+  'sideNavigationContentBackground': #3b3e51,
+
+  'filterBackground': #181818,
+  'filterForeground': #FFF,
+  'filterForegroundHighlight': #188080,
+  'foreground': #FFF,
+  'background': #292c3f,
+  'labelForeground': #FFF,
+  'menuForeground': #6E6F6E,
+  'menuDisabledForeground': #504f4f,
+  'metricCard1Background': #188080,
+  'metricCard2Background': #229689,
+  'metricCard3Background': #22a581,
+  'metricCard4Background': #4db891,
+  'metricCard5Background': #46b371,
+  'metricCard6Background': #77BC43,
+  'metricCard5NotEmptyBackground': #E8772C,
+  'metricCard6NotEmptyBackground': #E4212A,
+  'metricCard7Background': #333534,
+  'metricCard1IconFill': #68a8a9,
+  'metricCard2IconFill': #6ab7ae,
+  'metricCard3IconFill': #69c1a9,
+  'metricCard4IconFill': #89cfb3,
+  'metricCard5IconFill': #7ec697,
+  'metricCard6IconFill': #a0d081,
+  'metricCard5NotEmptyIconFill': #f0a26a,
+  'metricCard6NotEmptyIconFill': #ee686b,
+  'metricCardBackgroundSelected': #333534,
+  'metricCardSearchBackgroundIcon': #fff,
+  'metricCardSearchBackgroundIconSelected': #188080,
+  'metricCardHighlight': #188080,
+  'metricCardForeground': #FFF,
+  'titleIconFill': #188080,
+  'iconFill': #b4b4b4,
+  'iconFillDisabled': rgba(180,180,180,0.5),
+  'subtitleText': #989898,
+  'saveText': #188080,
+  'saveTextHover': #136969,
+  'paginationForeground': #fff,
+  'paginationBackground': #188080,
+  'high': #E4212A,
+  'medium': #D9A941,
+  'low': #188080,
+  'textInputBackground': #191c2b,
+  'textInputForeground': #b2b5c3,
+  'pageHeaderBackground': #292c3f,
+  'pageHeaderTitleForeground': #FFF,
+  'pageHeaderIconFill': #b4b4b4,
+  'pageHeaderLabelForeground': #b2b5c3,
+  'pageHeaderForeground': #b2b5c3,
+  'largeHeaderForeground': #383838,
+  'sectionTitleForeground': #b2b5c3,
+  'activityTitleForeground': #383838,
+  'activityDetailsTitleForeground': #FFF,
+  'paragraphForeground': #383838,
+  'expandTextForeground': #989898,
+  'noteAuthorAndDateForeground': #989898,
+  'tooltipBackground': #333534,
+  'tooltipForeground': #FFF,
+  'inputBackground': #6E6F6E,
+  'notificationCounterBackground': #E4212A,
+  'notificationCounterForeground': #FFF,
+  'contentBackground': #292c3f,
+  'contentForeground': #FFF,
+  'activityBackgroundHover': #f3f4f8,
+  'activeNavBarText': #383838,
+
+  'defaultTextColor': #000,
+
+  'inputAreaErrorBg': #fff6f6,
+  'inputAreaErrorBorder': #e0b4b4,
+
+  'dividerBorder': #3b3e51,
+  'headerDividerBorder': rgba(34, 36, 38, 0.15),
+
+  'resultsGood': #77BC43,
+  'resultsWarning': #f0e68c,
+  'resultsSevere': #FF4500,
+  'resultsCritical': #E4212A,
+
+  'itemSelectedForeground': #229689,
+  'itemSelectedBackground': #f5f7fa,
+
+  'tooltipIndicatorForeground': #229689,
+
+  // Modal
+
+  'modalShadow': #f3f4f8,
+  'modalBorder': #3a3c4e,
+  'modalHeaderBackground': #191c2b,
+  'modalHeaderForeground': #ffffff,
+  'modalBackground': #252837,
+  'modalTextColor': #ffffff,
+
+  // Button
+
+  'buttonBackground': #3b3e51,
+  'buttonForeground': #FFF,
+  'darkButtonBackground': #188080,
+  'darkButtonForeground': #FFF,
+  'darkButtonBackgroundHover': #136969,
+  'darkButtonIconFill': #FFF,
+  'buttonIconFill': #b2b5c3,
+  'buttonIconFillSelected': #188080,
+  'buttonIconFillWarning': #E4212A,
+  'buttonIconFillYield': #ff832c,
+  'buttonIconFillInfo': #acff7d,
+  'lightButtonBackground': #464759,
+  'lightButtonBorder': #464759,
+  'lightButtonForeground': #000,
+  'lightButtonBackgroundHover': #6E6F6E,
+  'hoverButtonBackground': #FFF,
+  'hoverButtonForeground': #292c3f,
+  'buttonDividerBorder': #fff,
+  'transparentButtonBorder': #1a8b7d,
+  'transparentButtonForeground': #1a8b7d,
+  'transparentButtonBorderHighlight': #28c6af,
+  'transparentButtonForegroundHighlight': #28c6af,
+
+  'warningButtonForeground': #FFF,
+  'warningButtonBackground': #ee686b,
+  'warningButtonBackgroundHighlight': #E4212A,
+
+  'linkButtonForeground': #FFF,
+  'linkButtonForegroundHighlight': #1a8b7d,
+
+  'loginButtonIconFill': #b2d8d3,
+
+  'actionButtonForeground': #FFF,
+  'actionButtonBackground': #1a8b7d,
+  'actionButtonBackgroundHighlight': #1a8b7d,
+
+  'textButtonForeground': #FFF,
+  'textButtonForegroundHighlight': #1a8b7d,
+
+  // List background, e.g. activity list
+  'listBackground': #191e31,
+  'listHightlightTeal': #188080,
+  'listHightlightYellow': #f2c028,
+  'listHightlightRed': #ff7321,
+
+  // Timeline / Date Picker
+  'timelineBorder': #3b3e51,
+  'timelineBackground': #191e31,
+  'timelineDateHeadingsColor': #ffffff,
+  'timelineTimeHeadingsColor': #b2b5c3,
+  'timelineDaySeperatorForeground': #a5a6a8,
+  'timelineHeaderForeground': #777e86,
+  'timelineHeaderIconFill': #777e86,
+  'timelineEventCountColor': #188080,
+  'timelineEventForeground': #FFF,
+  'timelineEventBorder': #FFF,
+  'timelineEventSelectedBorder': #bbff90,
+  'timelineEventLightGreen': #90aa3f,
+  'timelineEventLightBlue': #3399af,
+  'timelineEventAqua': #2ea295,
+  'timelineEventPurple': #7771b7,
+  'timelineEventOrangeBrown': #8c6d37,
+  'timelineEventLightGrey': #777e86,
+  'timelineListRowOdd': #212538,
+  'timelineListRowEven': #191e31,
+  'timelineListRowTextColor': #ffffff,
+  'datepickerHeaderColor': #ffffff,
+  'datepickerForeground': #333534,
+  'datepickerBackground': #191e31,
+  'datepickerBorder': #3b3e51,
+  'datepickerDayColor': #ffffff,
+  'datepickerDayBorder': #3b3e51,
+  'datepickerSaturdayForeground': #ffffff,
+  'datepickerSundayForeground': #ffffff,
+  'datepickerSelectedDayForeground': #FFF,
+  'datepickerSelectedDayBackground': #2ea295,
+  'datepickerOutsideMonthForeground': #464759,
+
+  // Analytics
+  'analyticsBackground': #292c3f,
+  'graphBackground': #3b3e51,
+  'analyticsSettingKeyForeground': #FFF,
+  'analyticsSettingValueForeground': #188080,
+  'analyticsSettingButtonBackground': #188080,
+
+  // Progress Widget
+  'progressOutline': #343647,
+  'progressBackground': #343647,
+  'progressFill': #188080,
+  'progressMessageBackground': #292c3f,
+  'progressMessageForeground': #FFF,
+
+  // Tables
+  'tableHeaderForeground': #b2b5c3,
+  'tableForeground': #FFF,
+  'tableBackgroundOdd': #303345,
+  'tableBackgroundEven': #292c3f,
+  'tableBorder': #dde2ed,
+  'tableForegroundHighlight': #136969,
+  'tableBackgroundHighlight': #454858,
+
+  // Dropdowns
+  'dropdownLabelForeground': #b2b5c3,
+  'dropdownSelectedForeground': #188080,
+  'dropdownMultipleForeground': #FFF,
+  'dropdownMultipleBackground': #77BC43,
+  'dropdownHeaderTitleForeground': #000,
+  'dropdownOptionsBorder': #3a3c4e,
+  'dropdownOptionsBackgroundOdd': #464759,
+  'dropdownOptionsBackgroundEven': #464759,
+  'dropdownOptionsBackgroundHighlight': #1a8b7d,
+
+  // Cards
+  'cardBackground': #292c3f,
+  'cardForeground': #FFF,
+
+  // Settings
+  'settingsHeaderForeground': #18b7a3,
+  'settingsBorder': #3a3c4e,
+
+  // Popup
+  'popupBackground': #ffffff,
+  'popupForeground': #292c3f,
+
+  // Text
+  'metaTextForeground': #b2b5c3,
+
+  // Tab Layout
+  'tabBackground': #3b3e51,
+  'tabForeground': #fff,
+  'tabBorder': #3a3c4e,
+
+  'errorColor': #FF0000,
+
+  // scroll bar colors
+  'scrollBarTrackShadow': rgba(0,0,0,0.3),
+  'scrollBarBackground': grey,
+  'scrollBarThumbBackground': darkgrey,
+  'scrollBarThumbOutline': slategrey,
+
+  // zoom slider
+  'zoomSliderBackground': #3b3e51,
+  'zoomSliderFocusBackground': #191c2b,
+
+  'whiteBackground': #ffffff,
+
+  // Menu
+  'menuItemDeactive': #b4b4b4,
+  'menuItemActive': #ffffff,
+);

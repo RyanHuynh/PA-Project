@@ -1,0 +1,200 @@
+@import './themes';
+
+$lato: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+$montserrat: 'Montserrat', sans-serif;
+$lucidaMonospace: 'lucida console', monospace;
+$navTitle: 16px $lato;
+$noteAuthor: 12px $lato;
+
+$normal: 400;
+$lightFontWeight: 300;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+
+@mixin largeHeader() {
+  @include themify($themes) {
+    color: themed('largeHeaderForeground');
+  }
+  font-family: $lato;
+  font-size: 27px;
+  font-weight: $bold;
+}
+
+@mixin navigationBarTitle() {
+  @include themify($themes) {
+    color: themed('activeNavBarTextForeground');
+  }
+  font-family: $lato;
+  font-size: 16px;
+  font-weight: $medium;
+}
+
+@mixin lowPriority() {
+  @include themify($themes) {
+    color: themed('low');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $semiBold;
+}
+
+@mixin mediumPriority() {
+  @include themify($themes) {
+    color: themed('medium');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $semiBold;
+}
+
+@mixin criticalPriority() {
+  @include themify($themes) {
+    color: themed('high');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $semiBold;
+}
+
+@mixin sectionTitle() {
+  @include themify($themes) {
+    color: themed('sectionTitleForeground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $bold;
+  text-transform: uppercase;
+}
+
+@mixin graphTitle() {
+  @include themify($themes) {
+    color: themed('foreground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $bold;
+  text-transform: uppercase;
+}
+
+@mixin activityTitle() {
+  @include themify($themes) {
+    color: themed('activityTitleForeground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $bold;
+}
+
+@mixin activityDetailsTitle() {
+  @include themify($themes) {
+    color: themed('activityDetailsTitleForeground');
+  }
+  font-family: $lato;
+  font-size: 22px;
+  font-weight: $bold;
+}
+
+@mixin paragraph() {
+  @include themify($themes) {
+    color: themed('paragraphForeground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: $semiBold;
+}
+
+@mixin expandText() {
+  @include themify($themes) {
+    color: themed('cardSecondaryForeground');
+  }
+  font-family: $lato;
+  font-size: 12px;
+  font-weight: $semiBold;
+}
+
+@mixin cardTitle() {
+  @include themify($themes) {
+    color: themed('cardForeground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $bold;
+}
+
+@mixin cardText() {
+  @include themify($themes) {
+    color: themed('cardForeground');
+  }
+  font-family: $lato;
+  font-size: 12px;
+  font-weight: $normal
+}
+
+@mixin cardMetaText() {
+  @include themify($themes) {
+    color: themed('metaTextForeground');
+  }
+  font-family: $lato;
+  font-size: 12px;
+  font-weight: $normal;
+  word-break: break-word;
+}
+
+@mixin metricCardHeader() {
+  @include themify($themes) {
+    color: themed('metricCardForeground');
+  }
+  font-family: $montserrat;
+  font-size: 42px;
+  font-weight: $lightFontWeight;
+}
+
+@mixin metricCardDescription() {
+  @include themify($themes) {
+    color: themed('metricCardForeground');
+  }
+  font-family: $montserrat;
+  font-size: 14px;
+  font-weight: $lightFontWeight;
+}
+
+@mixin pageTitleHeader() {
+  @include themify($themes) {
+    color: themed('pageHeaderTitleForeground');
+  }
+  font-family: $lato;
+  font-size: 42px;
+  font-weight: $bold;
+}
+
+@mixin label() {
+  @include themify($themes) {
+    color: themed('pageHeaderLabelForeground');
+  }
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $lightFontWeight;
+}
+
+@mixin button() {
+  font-family: $lato;
+  font-size: 14px;
+  font-weight: $medium;
+}
+
+@mixin transparentButton() {
+  font-family: $lato;
+  font-size: 12px;
+  font-weight: $normal;  
+}
+
+@mixin dropdownMenu() {
+  @include themify($themes) {
+    color: themed('dropdownForeground');
+  }
+  font-family: $lato;
+  font-size: 12px;
+  font-weight: $normal;
+}

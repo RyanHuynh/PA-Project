@@ -1,0 +1,97 @@
+@import './_themes';
+
+.filter-by {
+  @include themify($themes) {
+    background: transparent;
+  }
+  .ui.accordion .filter-group-name {
+    @include themify($themes) {
+      color: themed('foreground');
+    }
+  }
+  header {
+    @include themify($themes) {
+      background: themed('pageHeaderBackground');
+    }
+    ul {
+      @include themify($themes) {
+        background: transparent;
+      }
+      width: 100%;
+    }
+    .ui.button {
+      @include themify($themes) {
+        background: themed('actionButtonBackground');
+        color: themed('actionButtonForeground');
+      }
+      white-space: nowrap;
+    }
+  }
+
+  .filter-group-name {
+    svg {
+      height: 7px;
+      margin-right: 10px;
+    }
+    &.not-selected {
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    max-height: 40vh;
+    overflow-y: auto;
+
+    &.filters {
+      display: flex;
+      align-items: center;
+    }
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .available-filter {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+
+    button {
+      padding: 0;
+      border: 0;
+      background: none;
+      margin-left: 10px;
+      @include themify($themes) {
+        color: themed('textButtonForeground');
+      }
+      &:hover, &:active, &:focus {
+        background: none;
+        @include themify($themes) {
+          color: themed('textButtonForeground');
+        }
+      }
+    }
+    svg {
+      visibility: hidden;
+      height: 20px;
+      path {
+        @include themify($themes) {
+          fill: themed('textButtonForegroundHighlight');
+        }
+      }
+    }
+    &.selected {
+      svg {
+        visibility: visible;
+      }
+      button {
+        @include themify($themes) {
+          color: themed('textButtonForegroundHighlight');
+        }
+      }
+    }
+  }
+}

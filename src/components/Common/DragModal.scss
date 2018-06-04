@@ -1,0 +1,58 @@
+@import './_themes';
+
+.ui.modal.transition.visible.active.drag-modal {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  .react-draggable {
+    @include themify($themes) {
+      border: 1px solid themed('modalBorder');
+      background-color: themed('contentBackground');
+    }
+    header {
+      @include themify($themes) {
+        background: themed('modalHeaderBackground');
+      }
+      padding-top: 25px;
+      padding-bottom: 24px;
+      padding-left: 20px;
+      padding-right: 20px;
+      position: relative;
+      h3 {
+        @include themify($themes) {
+          color: themed('modalHeaderForeground');
+        }
+        margin: 0;
+        padding: 0;
+      }
+      .close-button {
+        position: absolute;
+        right: 13px;
+        top: 13px;
+      }
+    }
+    .modal-content {
+      @include themify($themes) {
+        background-color: themed('modalBackground');
+      }
+      padding-top: 17px;
+      padding-left: 22px;
+      padding-right: 22px;
+      padding-bottom: 13px;
+
+      footer.button-group {
+        display: flex;
+        flex-direction: row-reverse;
+        
+        button {
+          min-width: 100px;
+          display: block;
+          text-align: center;
+          margin-left: 9px;
+          margin-right: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

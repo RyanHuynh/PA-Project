@@ -1,0 +1,39 @@
+@import './_fonts.scss';
+
+.rs-dropdown-menu {
+  @include dropdownMenu();
+
+  > .rs-dropdown-label {
+    margin-right: 10px;
+    @include themify($themes) {
+      color: themed('dropdownLabelForeground');
+    }
+  }
+
+  .ui.dropdown {
+    > svg {
+      margin-left: 10px;
+      height: 6px;
+      @include themify($themes) {
+        color: themed('dropdownLabelForeground');
+      }
+    }
+
+    > .text {
+      @include themify($themes) {
+        color: themed('dropdownSelectedForeground');
+      }
+    }
+
+    > .menu.visible {
+      .item {
+        @include dropdownMenu();
+        &:not(.selected) {
+          @include themify($themes) {  
+            color: themed('dropdownLabelForeground');
+          }
+        }
+      }
+    }
+  }
+}

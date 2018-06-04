@@ -1,0 +1,25 @@
+@import './_themes';
+
+.ui.search-bar {
+  width: 175px;
+  
+  input, input:focus {
+    background: none;
+    border: none;
+  }
+  
+  svg {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 15px;
+    left: 7px;
+
+    path {
+      @include themify($themes) {
+        fill: themed('iconFill');
+      }
+    }
+    
+  }
+}

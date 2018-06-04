@@ -1,0 +1,167 @@
+@import './_themes';
+@import './fonts';
+
+.ui.bottom.popup.button-tooltip {
+  @include themify($themes) {
+    background: themed('hoverButtonBackground');
+    color: themed('hoverButtonForeground');
+  }
+  &:before {
+    @include themify($themes) {
+      background: themed('hoverButtonBackground');
+    }
+  }
+}
+
+button, button.ui.button {
+  padding: 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  @include button;
+
+  @include themify($themes) {
+    background: themed('buttonBackground');
+    color: themed('buttonForeground');
+  }
+
+  &.dark {
+    background: none;
+    @include themify($themes) {
+      background: themed('darkButtonBackground');
+      color: themed('darkButtonForeground');
+    }
+		&:hover {
+      @include themify($themes) {
+        background: themed('darkButtonBackgroundHover');
+      }
+		}
+  }
+  
+  &.right-icon {
+    flex-direction: row-reverse;
+  }
+	
+	&.light {
+    border: none;
+    @include themify($themes) {
+      background: themed('lightButtonBackground');
+      color: themed('lightButtonForeground');
+    }
+		&:hover {
+      @include themify($themes) {
+        background: themed('lightButtonBackgroundHover');
+      }
+		}
+  }
+  
+  &.transparent {
+    @include themify($themes) {
+      border: 1px solid themed('transparentButtonBorder');
+      color: themed('transparentButtonForeground');
+    }
+    @include transparentButton;
+    height: 18px;
+    min-height: 18px;
+    padding: 0 10px 0 10px;
+    background: none;
+    &:hover {
+      @include themify($themes) {
+        border: 1px solid themed('transparentButtonBorderHighlight');
+        color: themed('transparentButtonForegroundHighlight');
+      }
+    }
+  }
+
+  &.small {
+    padding: 5px;
+  }
+
+  &.medium {
+    padding: 10px;
+  }
+
+	svg {
+		margin-right: 15px;
+    height: 20px;
+    path, .st0, .st1 {
+      @include themify($themes) {
+        fill: themed('buttonIconFill');
+      }
+    }
+	}
+
+	&.icon-only {
+    width: 50px;
+		svg {
+			margin: 0;
+		}
+  }
+
+  &.text-save {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    @include themify($themes) {
+      color: themed('saveText');
+    }
+    font-family: $lato;
+    font-size: 14px;
+    &:hover {
+      @include themify($themes) {
+        color: themed('saveTextHover');
+      }
+    }
+  }
+
+  &.no-border-padding {
+    padding: 0;
+    @include themify($themes) {
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  &.rs-link-btn{
+    padding: 5px 0;
+    background: none;
+    @include themify($themes) {
+      color: themed('linkButtonForeground');
+    }
+    &:hover{
+      @include themify($themes) {
+        color: themed('linkButtonForegroundHighlight');
+      }
+    }
+  }
+  &.rs-toggle-btn, 
+  &.rs-delete-btn,
+  &.rs-add-btn{
+      padding: 8px;
+      margin: 0 auto;
+  }
+  &.rs-delete-btn{  
+      @include themify($themes) {
+        color: themed('warningButtonForeground');
+        background: themed('warningButtonBackground');
+      }
+      &:hover {
+        @include themify($themes) {
+          background: themed('warningButtonBackgroundHighlight');
+        }
+      }
+  }
+  
+  &.rs-add-btn{
+      @include themify($themes) {
+        color: themed('actionButtonForeground');
+        background: themed('actionButtonBackground');
+      }
+      &:hover {
+        @include themify($themes) {
+          color: themed('actionButtonForeground');
+          background: themed('actionButtonBackgroundHighlight');
+        }
+      }
+  }
+}

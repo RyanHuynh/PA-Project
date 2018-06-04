@@ -1,0 +1,37 @@
+@import './_themes';
+
+.rs-pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0 30px;
+  @include themify($themes) {
+    color: themed('foreground');
+  }
+
+  button.ui.button.rs-pagination-button {
+      background: transparent;
+      svg {
+          width: 9px;
+          height: 15px;
+          padding: 0;
+          margin: 0;
+      }
+      &.disabled {
+        svg {
+          path {
+            @include themify($themes) {
+              fill: themed('iconFillDisabled');
+            }
+          }
+        }
+      }
+  }
+}
+
+.ui.pagination.menu .active.item {
+  @include themify($themes) {
+    background: themed('paginationBackground');
+    color: themed('paginationForeground');
+  }
+}

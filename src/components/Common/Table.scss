@@ -1,0 +1,338 @@
+@import './_fonts';
+@import './_themes';
+
+.rs-table-container {
+    padding: 0 20px;
+    .rs-table {
+        border: 0;
+        .rt-table {
+            overflow: visible;
+        }
+        .rt-thead.-header {
+            background: transparent;
+            box-shadow: none;
+            .rs-header {
+                text-align: left;
+                border: 0;
+                box-shadow: none;
+                outline: none;
+                padding: 5px 1em;
+                @include themify($themes) {
+                    color: themed('tableHeaderForeground');
+                }
+                .rs-header-title {
+                    display: flex;
+                    align-items: center;
+                    svg {
+                        margin-left: 5px;
+                        height: 5px;
+                        &.asc {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+            .rt-th:not(.rs-header) {
+                border: 0 none;
+                padding: 0;
+            }
+            .rt-resizable-header {
+                min-width: 60px;
+            }
+        }
+        .rt-tbody {
+            overflow: visible;
+        }
+        .rt-tr-group {
+            border-bottom: 0 none;
+            .icon {
+                visibility: hidden;
+            }
+            :hover {
+                .icon {
+                    visibility: visible;
+                }
+                .react-datepicker-wrapper {
+                    input {
+                        background: url('../../assets/img/calendar.svg') 100% 0 no-repeat;
+                    }
+                }
+            }
+            .rt-tr:hover {
+                @include themify($themes) {
+                    background-color: themed('tableBackgroundHighlight') !important;
+                }
+                .id_cell > div a {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .rt-tr {
+            height: 40px;
+            &.-odd {
+                @include themify($themes) {
+                    background-color: themed('tableBackgroundOdd');
+                }
+            }
+            &.-even {
+                @include themify($themes) {
+                    background-color: themed('tableBackgroundEven');
+                }
+            }
+        }
+        .rt-td {
+            align-self: center;
+            @include themify($themes) {
+                color: themed('tableForeground');
+            }
+            svg {
+                height: 15px;
+                width: 15px;
+                margin: 0;
+                padding: 0;
+            }
+        } 
+        .rt-expandable {
+            display: none;
+        }
+        .rt-expanded {
+            margin: 0 0 0 16px;
+            > div {
+                flex: 100 0 auto;
+                width: 100px;
+                &:first-child {
+                    width: 84px;
+                }
+            }
+        }
+    }
+
+    .rs-cell {
+        margin: 0;
+        padding: 0;
+        min-width: 60px;    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: visible;
+
+        > div {
+            font-weight: normal;
+            padding: 5px 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        input {
+            @include themify($themes) {
+                color: themed('tableForeground');
+            }
+        }
+
+        .critical, .high {
+            @include themify($themes) {
+                color: themed('high');
+            }
+        }
+
+        .medium {
+            @include themify($themes) {
+                color: themed('medium');
+            }
+        }
+
+        .low {
+            @include themify($themes) {
+                color: themed('low');
+            }
+        }
+
+        .react-datepicker-wrapper {
+            padding: 0;
+            input {
+                border: 0 none;
+                background: none;
+                cursor: pointer;
+                font-family: $lato;
+                width: 100%;
+                height: auto;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .react-datepicker-popper {
+            .react-datepicker__time-list-item {
+                width: 60px;
+            }
+        }
+
+        .ui.input {
+            padding: 0;
+            input {
+                border: 0 none;
+                background: none;
+                padding: 4px 1em 6px;
+                width: 100%;
+                height: 38px;
+                &:focus {
+                    @include themify($themes) {
+                        background: themed('textInputBackground');
+                    }
+                }
+            }
+        }
+
+        .ui.selection.dropdown {
+            border: 0 none;
+            background: none;
+            width: 100%;
+            height: auto;
+            font-weight: normal;
+            overflow: visible;
+            @include themify($themes) {
+                color: themed('tableForeground');
+            }
+            .text {
+                display: block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            &.visible {
+                .icon {
+                    visibility: visible !important;
+                }
+                > .text:not(.default) {
+                    font-weight: normal;
+                    @include themify($themes) {
+                        color: themed('tableForeground');
+                    }
+                }
+            }
+            &.critical, &.high {
+                @include themify($themes) {
+                    color: themed('high');
+                }
+            }
+            &.medium {
+                @include themify($themes) {
+                    color: themed('medium');
+                }
+            }
+            &.low {
+                @include themify($themes) {
+                    color: themed('low');
+                }
+            }
+            > .text {
+                white-space: nowrap;
+            }
+            .icon {
+                @include themify($themes) {
+                    color: themed('tableForeground');
+                }
+            }
+            .menu {
+                border: 0 none;
+                margin: 0;
+                min-width: 100%;
+                width: 100%;
+                background: none;
+                > .item {
+                    border: 0 none;
+                    @include themify($themes) {
+                        color: themed('tableForeground');
+                    }
+                }
+                > .selected.item {
+                    @include themify($themes) {
+                        color: themed('tableForeground');
+                    }
+                }
+            }
+        }
+
+        &.severity_cell > div, &.due_date_cell > div {
+            &.critical, &.high {
+                @include themify($themes) {
+                    color: themed('high');
+                }
+            }
+            &.medium {
+                @include themify($themes) {
+                    color: themed('medium');
+                }
+            }
+            &.low {
+                @include themify($themes) {
+                    color: themed('low');
+                }
+            }
+        }
+        
+        &.checkbox_cell {
+            div.checkbox {
+                margin: 0 auto;
+            }
+        }
+
+        &.id_cell,
+        &.checkbox_cell {
+            > div {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                &.critical, &.high, &.bad {
+                    @include themify($themes) {
+                        border-left: 3px solid themed('high');
+                    }
+                }
+                &.medium, &.warning {
+                    @include themify($themes) {
+                        border-left: 3px solid themed('medium');
+                    }
+                }
+                &.low, &.good {
+                    @include themify($themes) {
+                        border-left: 3px solid themed('low');
+                    }
+                }
+                > a {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    @include themify($themes) {
+                        color: themed('tableForeground');
+                    }
+                }
+            }
+        }
+
+        &.due_date_cell {
+            > div {
+                text-overflow: clip;
+            }
+            .react-datepicker-wrapper {
+                input {
+                    padding-right: 24px;
+                    border-right: 8px solid transparent;
+                }
+            }
+            .due-date-value {
+                margin-right: 32px;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    .rt-noData {
+        top: 300%;
+    }
+}

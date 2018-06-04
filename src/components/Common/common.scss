@@ -1,0 +1,215 @@
+@import './_themes';
+@import './_mixins';
+@import './_fonts';
+
+body {
+  @include themify($themes) {
+    background-color: themed('contentBackground');
+  }
+}
+
+body ::-webkit-scrollbar {
+  background-color: grey;
+  @include themify($themes) {
+    background-color: themed('scrollBarBackground');
+  }
+}
+
+body ::-webkit-scrollbar-track {
+  @include themify($themes) {
+    -webkit-box-shadow: inset 0 0 6px themed('scrollBarTrackShadow');
+    box-shadow: inset 0 0 6px themed('scrollBarTrackShadow');
+  }
+}
+
+body ::-webkit-scrollbar-thumb {
+  @include themify($themes) {
+    background-color: themed('scrollBarThumbBackground');
+    outline: 1px solid themed('scrollBarThumbOutline');
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.ui.popup.rs-popup {
+  @include themify($themes) {
+    background-color: themed('popupBackground');
+    color: themed('popupForeground');
+  }
+}
+
+.ui.menu {
+  background: transparent;
+  margin: 0;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-radius: 0px;
+}
+
+.ui.dimmer {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+textarea, input, .ui.input input[type=password], .ui.input input[type=text], .ui.input input[type=number], .ui.input textarea, .ui.dropdown, .search-bar input {
+  height: 47px;
+  @include themify($themes) {
+    background-color: themed('textInputBackground');
+    color: themed('textInputForeground');
+  }
+
+  &:focus {
+    @include themify($themes) {
+      background-color: themed('textInputBackground');
+      color: themed('textInputForeground');
+    }
+  }
+}
+.ui.form {
+  margin: 0; 
+  .inline.fields {
+    .field {
+      margin: 0 0 15px;
+      label {
+        margin: 0 0 5px 2px;
+        @include themify($themes) {
+          color: themed('labelForeground');
+        }
+        font-size: 14px;
+      }
+      button {
+        width: 100%;
+        text-align: center;
+      }
+      .ui {
+        input, label {
+          @include themify($themes) {
+            color: themed('labelForeground');
+          }
+        }
+      }
+    }
+  }
+  .field {
+    margin: 0 0 15px;
+    label {
+      margin: 0 0 5px 2px;
+      @include themify($themes) {
+        color: themed('labelForeground');
+      }
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      text-align: center;
+    }
+    .ui {
+      input, label {
+        @include themify($themes) {
+          color: themed('labelForeground');
+        }
+      }
+    }
+  }  
+}
+.ui input:focus ~ label {
+    @include themify($themes) {
+      color: themed('labelForeground');
+    }
+  }
+.ui.selection.dropdown { 
+  min-width: 0;
+  width: 100% !important;
+  padding-top: 15px;
+  &.visible .text:not(.default) {
+    @include themify($themes) {
+      color: themed('foreground');
+    }
+  }
+  .menu {
+    @include themify($themes) {
+      border: 1px solid themed('dropdownOptionsBorder');
+    }
+    .item {
+      border-top: 0;
+      @include themify($themes) {
+        color: themed('foreground');
+      }
+      &:nth-child(odd) {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundOdd');
+        }
+      }
+      &:nth-child(even) {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundEven');
+        }
+      }
+      &:hover {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundHighlight');
+        }
+      }
+    }
+  }
+}
+
+.ui.input .field.error {
+  .ui.dropdown {
+    background: transparent;
+    .item {
+      &:nth-child(odd) {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundOdd');
+        }
+      }
+      &:nth-child(even) {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundEven');
+        }
+      }
+      &:hover {
+        @include themify($themes) {
+          background-color: themed('dropdownOptionsBackgroundHighlight');
+        }
+      }
+      .text {
+        background: transparent;
+        @include themify($themes) {
+          color: themed('foreground');
+        }
+      }
+    }
+    > .text{
+      background: transparent;
+      @include themify($themes) {
+        color: themed('errorColor');
+      }
+    }
+  }
+}
+
+#login-modal {
+  .button-group button {
+    display: flex;
+  }
+}
+
+.ui.input .error {
+  @include themify($themes) {
+    color: themed('errorColor');
+  }
+}
+svg {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem 0 1rem .75rem;
+}
+.pointer {
+  cursor: pointer;
+}

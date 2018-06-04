@@ -1,0 +1,69 @@
+@import './_themes';
+
+@mixin flexbox(
+  $dir: row,
+  $content: stretch,
+  $items: stretch, 
+  $content: stretch,
+  $justify: flex-start,
+  $wrap: nowrap,
+  $order: 0,
+  $overflow: auto
+) {
+  display: flex;
+  flex-wrap: $wrap;
+  flex-direction: $dir;
+  align-items: $items;
+  align-content: $content;
+  justify-content: $justify;
+  order: $order;
+  overflow: $overflow;
+}
+
+@mixin flexchild($grow: 1, $shrink: 1, $basis: auto) {
+  @if $grow == 'none' {
+    flex: none;
+  } @else {
+    flex: $grow $shrink $basis;
+    overflow: auto;
+  }
+}
+
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount; 
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em;
+  &:before {
+    content: '\2026';
+    position: absolute;
+    right: 3px;
+    bottom: 0px;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    right: 3px;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: $bgColor;
+  }
+}
+
+@mixin singleLineEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin errorInput() {
+  @include themify($themes) {
+    background: themed('inputAreaErrorBg');
+    border-color: themed('inputAreaErrorBorder');
+  }
+}

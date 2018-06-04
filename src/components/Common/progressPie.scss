@@ -1,0 +1,33 @@
+@import './_themes';
+
+svg.progress-pie {
+  width: 25px;
+  height: 25px;
+  @include themify($themes) {
+    background: themed('progressOutline');
+  }
+  border-radius: 50%;
+  circle.pie-progress-bg {
+    @include themify($themes) {
+      fill: themed('progressBackground');
+      stroke: themed('progressFill');
+    }
+    stroke-width: 32;
+  }
+  circle.pie-progress-text-bg {
+    @include themify($themes) {
+      fill: themed('progressMessageBackground');
+    }
+  }
+  text {
+    @include themify($themes) {
+      fill: themed('progressMessageForeground');
+    }
+    font-size: 3px;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    text-anchor: middle;
+    &.pie-progress-title {
+      font-size: 8px;
+    }
+  }
+}
