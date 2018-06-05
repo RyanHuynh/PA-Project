@@ -5,8 +5,6 @@ import { Modal } from 'semantic-ui-react';
 
 // Styles
 import './DragModal.scss';
-import { IconOnlyButton } from './Buttons';
-import CloseIcon from '../../assets/img/DeleteItem';
 
 const DragModal = props => (
   <Modal id={props.id} className={`drag-modal ${props.className || ''}`} dimmer={props.dimmer} open={props.open} size={props.size}>
@@ -15,7 +13,6 @@ const DragModal = props => (
         <header className="handle">
           <h3>{props.header}</h3>
           {props.headerOptions}
-          {props.showClose ? (<IconOnlyButton description="Close" buttonClass="close-button" noBorderPadding onClick={() => { props.onClose(); }}><CloseIcon /></IconOnlyButton>) : null}
         </header>
         <section className="modal-content">
           {props.children}
@@ -34,8 +31,6 @@ DragModal.propTypes = {
   dimmer: PropTypes.bool,
   open: PropTypes.bool,
   draggableCancelClass: PropTypes.string,
-  showClose: PropTypes.bool,
-  onClose: PropTypes.func,
   className: PropTypes.string,
 };
 

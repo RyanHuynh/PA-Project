@@ -101,7 +101,7 @@ class CreateRecipeForm extends Component {
     const { name } = this.state;
     return (
       <DragModal
-        open={this.props.open}
+        open
         header="Add New Recipe"
         dimmer
         size="small"

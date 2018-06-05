@@ -38,8 +38,8 @@ function* getRecipeListWatcher() {
 }
 
 function* submitIngredient(action) {
-  const response = yield call(CookBookService.submitIngredient, action.recipe);
-  if (response.success) {
+  const response = yield call(CookBookService.submitIngredient, action.ingredient);
+  if (response.data.success) {
     yield put({ type: SUBMIT_INGREDIENT_SUCCESS });
     yield put(cookbookActions.getIngredientList());
   }
@@ -49,8 +49,10 @@ function* submitIngredidentWatcher() {
 }
 
 function* getIngredidentList() {
-  const responses = yield call(CookBookService.getIngredientList);
-  yield put(cookbookActions.setIngredientList(responses));
+  const response = yield call(CookBookService.getIngredientList);
+  if (response.data.success) {
+    yield put(cookbookActions.setIngredientList(response.data.list));
+  }
 }
 function* getIngredientListWatcher() {
   yield takeLatest(GET_INGREDIENT_LIST_REQUESTING, getIngredidentList);

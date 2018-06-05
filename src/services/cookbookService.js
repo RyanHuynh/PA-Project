@@ -1,4 +1,5 @@
 import axios from 'axios';
+import QueryString from 'query-string';
 
 const RList = [{ id: 1, name: 'aaaa' }];
 let RCounter = 1;
@@ -19,14 +20,13 @@ export default class CookBookService {
   }
 
   static getIngredientList() {
-    return [...IList];
+    return axios.get('/cb/i/list');
   }
 
   static submitIngredient(ingredient) {
-    IList.push({ ...ingredient, id: ++ICounter });
-    return {
-      success: true,
-    };
+    return axios.post('/cb/i/save', QueryString.stringify({
+      ...ingredient,
+    }));
   }
 
   static getTipList() {

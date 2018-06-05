@@ -141,7 +141,7 @@ const submitRecipe = recipe => ({
 });
 
 const getRecipeList = () => ({
-  type: SUBMIT_RECIPE_SUCCESS,
+  type: GET_RECIPE_LIST_REQUESTING,
 });
 
 const setRecipeList = list => ({
@@ -149,9 +149,9 @@ const setRecipeList = list => ({
   list,
 });
 
-const submitIngredient = recipe => ({
+const submitIngredient = ingredient => ({
   type: SUBMIT_INGREDIENT_REQUESTING,
-  recipe,
+  ingredient,
 });
 
 const getIngredientList = () => ({

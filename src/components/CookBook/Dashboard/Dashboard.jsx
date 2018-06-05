@@ -18,6 +18,9 @@ class Dashboard extends Component {
       showTipForm: false,
     };
     this.handleSearch = this.handleSearch.bind(this);
+    this.submitRecipe = this.submitRecipe.bind(this);
+    this.submitIngredient = this.submitIngredient.bind(this);
+    this.submitTip = this.submitTip.bind(this);
   }
   handleSearch() {
 
@@ -78,17 +81,19 @@ class Dashboard extends Component {
             </Form>
           </Menu.Item>
         </Menu>
-        <CreateRecipeForm
-          open={this.state.showRecipeForm}
-          ingredientList={this.props.ingredientList}
-          onSubmit={this.submitRecipe}
-          onClose={() => { this.setState({ showRecipeForm: false }); }}
-        />
-        <CreateIngredientForm
-          open={this.state.showIngredientForm}
-          onSubmit={this.submitIngredient}
-          onClose={() => { this.setState({ showIngredientForm: false }); }}
-        />
+        {this.state.showRecipeForm ?
+          <CreateRecipeForm
+            ingredientList={this.props.ingredientList}
+            onSubmit={this.submitRecipe}
+            onClose={() => { this.setState({ showRecipeForm: false }); }}
+          /> : null
+        }
+        {this.state.showIngredientForm ?
+          <CreateIngredientForm
+            onSubmit={this.submitIngredient}
+            onClose={() => { this.setState({ showIngredientForm: false }); }}
+          /> : null
+        }
         <CreateTipForm
           open={this.state.showTipForm}
           onSubmit={this.submitTip}

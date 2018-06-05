@@ -38,6 +38,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const cookbookController = require('./controllers/cookbook');
 
 /**
  * Load webpack config
@@ -94,13 +95,14 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use((req, res, next) => {
+//DISABLE CSRF FOR NOW
+/*app.use((req, res, next) => {
   if (req.path === '/api/upload') {
     next();
   } else {
     lusca.csrf()(req, res, next);
   }
-});
+});*/
 app.use(lusca.xframe('SAMEORIGIN'));
 app.use(lusca.xssProtection(true));
 app.disable('x-powered-by');
@@ -152,6 +154,11 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
+/**
+ * Cookbook API
+ */
+app.post('/cb/i/save', cookbookController.saveIngredient);
+app.get('/cb/i/list', cookbookController.getIngredientList);
 /**
  * API examples routes.
  */

@@ -48,30 +48,17 @@ ul {
   margin-right: 0 !important;
   border-radius: 0px;
 }
-
+.ui.segment {
+  background: transparent;
+}
 .ui.dimmer {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-textarea, input, .ui.input input[type=password], .ui.input input[type=text], .ui.input input[type=number], .ui.input textarea, .ui.dropdown, .search-bar input {
-  height: 47px;
-  @include themify($themes) {
-    background-color: themed('textInputBackground');
-    color: themed('textInputForeground');
-  }
-
-  &:focus {
-    @include themify($themes) {
-      background-color: themed('textInputBackground');
-      color: themed('textInputForeground');
-    }
-  }
-}
 .ui.form {
-  margin: 0; 
   .inline.fields {
-    .field {
-      margin: 0 0 15px;
+    margin: 0;
+    .field {   
       label {
         margin: 0 0 5px 2px;
         @include themify($themes) {
@@ -105,24 +92,53 @@ textarea, input, .ui.input input[type=password], .ui.input input[type=text], .ui
       width: 100%;
       text-align: center;
     }
+    input, textarea, .dropdown {     
+      @include themify($themes) {
+        background-color: themed('textInputBackground');
+        color: themed('foreground');
+      }
+      &:focus {
+        @include themify($themes) {
+          background-color: themed('textInputBackground');
+          color: themed('foreground');
+        }
+      }
+    }
     .ui {
-      input, label {
+      input, label {        
         @include themify($themes) {
           color: themed('labelForeground');
         }
       }
-    }
+    }    
   }  
 }
-.ui input:focus ~ label {
+.ui.input {
+  input, .dropdown {
+    height: 47px;
+  }
+  input, textarea, .dropdown {     
     @include themify($themes) {
-      color: themed('labelForeground');
+      background-color: themed('textInputBackground');
+      color: themed('foreground');
+    }
+    &:focus {
+      @include themify($themes) {
+        background-color: themed('textInputBackground');
+        color: themed('foreground');
+      }
     }
   }
+}
+
 .ui.selection.dropdown { 
   min-width: 0;
   width: 100% !important;
   padding-top: 15px;
+  @include themify($themes) {
+    background-color: themed('textInputBackground');
+    color: themed('foreground');
+  }
   &.visible .text:not(.default) {
     @include themify($themes) {
       color: themed('foreground');
@@ -190,7 +206,9 @@ textarea, input, .ui.input input[type=password], .ui.input input[type=text], .ui
     }
   }
 }
-
+.ui.modal.transition.visible.active.drag-modal .react-draggable header {
+  padding: 20px;
+}
 #login-modal {
   .button-group button {
     display: flex;

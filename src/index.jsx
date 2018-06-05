@@ -16,8 +16,8 @@ import configureStore from './redux/store';
 const store = configureStore();
 
 // Set default axios fields
-/*axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest, XMLHttpRequest';
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';*/
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest, XMLHttpRequest';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const render = (Component) => {
   ReactDOM.render(
