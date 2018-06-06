@@ -32,6 +32,7 @@
       "no-unused-vars": "warn",
       "constructor-super": "warn",
       "valid-typeof": "warn",
+      "no-underscore-dangle": "off",
       "import/no-named-as-default": "off",
       "import/no-unresolved": [2, {"commonjs": true, "caseSensitive": false}],
       "jsx-a11y/anchor-is-valid": [ "error", {

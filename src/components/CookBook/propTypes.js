@@ -1,13 +1,13 @@
 import { arrayOf, shape, string, number } from 'prop-types';
 
-export const ingredient = shape({
+export const ingredientType = shape({
   id: number,
   name: string,
   category: string,
   info: string,
 });
 
-export const recipe = shape({
+export const recipeType = shape({
   id: number,
   name: string,
   category: string,
@@ -21,5 +21,5 @@ export const recipe = shape({
   info: string,
 });
 
-export const recipeList = arrayOf(recipe);
-export const ingredientList = arrayOf(ingredient);
+export const recipeListType = arrayOf(recipeType);
+export const ingredientListType = arrayOf(ingredientType);

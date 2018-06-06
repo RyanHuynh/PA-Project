@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Menu, Input, Form, Button, Icon } from 'semantic-ui-react';
-import { recipeList, ingredientList } from '../propTypes';
+import { recipeListType, ingredientListType } from '../propTypes';
 import SearchMagnGlass from '../../../assets/img/SearchMagnGlass';
 import CreateRecipeForm from '../Recipe/CreateRecipeForm';
 import CreateIngredientForm from '../Ingredient/CreateIngredientForm';
@@ -10,6 +10,18 @@ import CreateTipForm from '../Tip/CreateTipForm';
 import { cookbookActions } from '../../../redux/cookbook';
 
 class Dashboard extends Component {
+  static getDerivedStateFromProps(prop, prevState) {
+    if (prevState.showRecipeForm && prop.recipeRequestStatus) {
+      return {
+        showRecipeForm: false,
+      };
+    } else if (prevState.showIngredientForm && prop.ingredientRequestStatus) {
+      return {
+        showIngredientForm: false,
+      };
+    }
+    return null;
+  }
   constructor() {
     super();
     this.state = {
@@ -38,6 +50,19 @@ class Dashboard extends Component {
   }
   submitTip(tip) {
     this.props.submitTip(tip);
+  }
+  renderItemList() {
+    const { recipeList, ingredientList } = this.props;
+    const RL = recipeList.map(r => <div key={r.id}>{r.name}</div>);
+    const IL = ingredientList.map(l => <div key={l._id}>{l.name}</div>);
+    return (
+      <React.Fragment>
+        <h3>Recipe</h3>
+        {RL}
+        <h3>Ingredient</h3>
+        {IL}
+      </React.Fragment>
+    );
   }
   render() {
     return (
@@ -73,7 +98,7 @@ class Dashboard extends Component {
           </Menu.Item>
           <Menu.Item position="right">
             <Form>
-              <Form.Group inline>                
+              <Form.Group inline>
                 <Button icon onClick={() => { this.setState({ showRecipeForm: true }); }}><Icon name='world' /></Button>
                 <Button icon onClick={() => { this.setState({ showIngredientForm: true }); }}><Icon name='world' /></Button>
                 <Button icon onClick={() => { this.setState({ showTipForm: true }); }}><Icon name='world' /></Button>
@@ -81,6 +106,7 @@ class Dashboard extends Component {
             </Form>
           </Menu.Item>
         </Menu>
+        {this.renderItemList()}
         {this.state.showRecipeForm ?
           <CreateRecipeForm
             ingredientList={this.props.ingredientList}
@@ -118,8 +144,8 @@ const mapDispatchToProps = dispatch => ({
   getTipList: () => dispatch(cookbookActions.getTipList()),
 });
 Dashboard.propTypes = {
-  recipeList,
-  ingredientList,
+  recipeList: recipeListType,
+  ingredientList: ingredientListType,
   submitRecipe: PropTypes.func,
   getRecipeList: PropTypes.func,
   submitIngredient: PropTypes.func,

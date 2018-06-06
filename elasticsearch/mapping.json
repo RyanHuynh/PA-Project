@@ -1,0 +1,16 @@
+exports.cookbookIndex = {
+  "mappings": {
+    "ingredient" : {
+      "properties": {
+        "name": {
+          "type": "text",
+          "analyzer": "english"
+        },
+        "alias": {
+          "type": "text",
+          "analyzer": "standard"
+        }
+      }
+    }
+  }
+}

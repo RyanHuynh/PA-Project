@@ -13,6 +13,7 @@ class CreateIngredientForm extends Component {
     super();
     this.state = {
       name: '',
+      alias: '',
       category: '',
       description: '',
       where: '',
@@ -39,6 +40,7 @@ class CreateIngredientForm extends Component {
   renderInfo() {
     const {
       name,
+      alias,
       category,
       description,
       where,
@@ -49,6 +51,11 @@ class CreateIngredientForm extends Component {
           label="Name"
           value={name}
           onChange={(e) => { this.setState({ name: e.target.value }); }}
+        />
+        <Form.Input
+          label="Alias"
+          value={alias}
+          onChange={(e) => { this.setState({ alias: e.target.value }); }}
         />
         <Form.Dropdown
           selection
@@ -105,6 +112,6 @@ class CreateIngredientForm extends Component {
 }
 CreateIngredientForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  onClose: PropTypes.func.isRequired, 
+  onClose: PropTypes.func.isRequired,
 };
 export default CreateIngredientForm;
